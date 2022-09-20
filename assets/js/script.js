@@ -46,7 +46,7 @@ function resetState() {
     }
 }
 
-function selectAnswer() {
+function selectAnswer(e) {
     const selectedButton = e.target
     const correct = selectedButton.dataset.correct
     setStatusClass(document.body, correct)
@@ -58,12 +58,17 @@ function selectAnswer() {
 
 function setStatusClass(element, correct) {
     clearStatusClass(element)
-    if(correct) {
-        element.classList.add('correct')
+    if (correct) {
+      element.classList.add('correct')
     } else {
-        element.classList.add('wrong')
+      element.classList.add('wrong')
     }
-}
+  }
+
+  function clearStatusClass(element) {
+    element.classList.remove('correct')
+    element.classList.remove('wrong')
+  }
 
 const questions = [
     {
